@@ -1,4 +1,7 @@
-# Statistical Graphs with Diamonds Dataset
+# ggplot2
+## Get ggplot2
+library(ggplot2)
+# Statistical Graphs with Diamonds Dataset in ggplot2
 head(diamonds)
 summary(diamonds)
 dim(diamonds)
@@ -12,9 +15,6 @@ plot(diamonds$cut,diamonds$price)
 plot(diamonds$color,diamonds$price)
 plot(diamonds$clarity,diamonds$price)
 
-# ggplot2
-## Get ggplot2
-library(ggplot2)
 ## Plots with ggplot2
 ggplot(data = diamonds)+geom_histogram(aes(carat),fill="pink") # Histogram of Carats
 ggplot(data = diamonds)+geom_density(aes(carat),fill="blue") # Density Plot of Carats
@@ -32,3 +32,13 @@ g+geom_point(aes(color=clarity))+facet_wrap(cut~clarity)
 ggplot(diamonds,aes(x=carat))+geom_histogram()
 ggplot(diamonds,aes(x=carat))+geom_histogram()+facet_wrap(~clarity)
 ggplot(diamonds,aes(x=carat))+geom_histogram()+facet_wrap(cut~clarity)
+## Box Plots
+ggplot(diamonds,aes(y=carat,x=cut))+geom_boxplot()
+## Violin Plot
+ggplot(diamonds,aes(y=carat,x=cut))+geom_violin()
+ggplot(diamonds,aes(y=carat,x=cut))+geom_violin()+geom_point()
+## Line Graph w/ economics dataset
+head(economics)
+summary(economics)
+dim(economics)
+ggplot(economics,aes(x=date,y=unemploy))+geom_line() # Unemployment Rate
